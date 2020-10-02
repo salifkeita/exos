@@ -2,10 +2,10 @@ def personal():
     for i in range(1):
         prenom=input("saisir le prenom:")
         nom=input("saisir le nom:")
-        age= input("saisir age:")
-        classe=input("classe:")
+        classe= input("saisir sa classe:")
+        date_naissance=input("saisir la date de naissance:")
         fichier=open("info.txt","a")
-        fichier.writelines(f"{prenom}:{nom}:{age}ans:{classe}Année\n")
+        fichier.writelines(f"{prenom}:{nom}:{classe}Année:{date_naissance}\n")
         fichier.close
 
 def appel():
@@ -13,9 +13,12 @@ def appel():
     homme=fichier.readlines()
     for liste in homme:
         liste=liste.split(":")
-        print(f"Nom et Prenom de l'eleve est:{liste [0]}\n{liste [1]}\nSon age est: {liste [2]}\nclasse:{liste[3]}")
-        #print(f"{liste}" )
-
+        prenom= liste[0]
+        nom= liste[1]
+        age= liste[2]
+        date_naissance= liste[3]
+        date_naissance=date_naissance.split("/")
+        print(f"Nom de l'eleve est: {nom}\nMois de naissance est: {date_naissance[1]} mois")
     fichier.close
 
 
